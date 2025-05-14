@@ -3,6 +3,10 @@ package com.example.ApiPedido.Model;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
@@ -12,18 +16,21 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-//Falta Entity y Table
+@Entity 
 public class Direccion {
 
-
-    //Atributos
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_direccion;
+
+    private String calle;
     private String comuna;
     private String region;
 
     @ManyToOne
-    @JsonBackReference  //Dependencia con pedido
-    @JoinColumn(name = "Pedido")
-    private List<Pedido> pedido;
+    @JsonBackReference
+    @JoinColumn(name = "pedido_id")
+    private Pedido pedido;
+
 
 }

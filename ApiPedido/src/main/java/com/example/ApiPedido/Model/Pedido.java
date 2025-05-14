@@ -22,24 +22,16 @@ import lombok.NoArgsConstructor;
 //Falta  Table
 public class Pedido {
     
-
-    //Atributos
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_pedido;
-    
 
-    //Dependencia con direccion
-    @OneToMany(mappedBy = "Pedido", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Direccion> direcciones;
 
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Producto> productos;
 
-    //Dependencia con producto
-    @OneToMany(mappedBy = "Producto", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Producto> pedidos;
-
-
-    //Dependencia con usuario
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
