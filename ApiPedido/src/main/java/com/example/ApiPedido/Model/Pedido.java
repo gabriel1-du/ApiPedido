@@ -24,7 +24,7 @@ public class Pedido {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_pedido;
+    private Integer id_pedido;
 
     @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Direccion> direcciones;
@@ -35,5 +35,10 @@ public class Pedido {
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
+
+    public void setId(Integer id_pedido2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setId'");
+    }
 
 }
