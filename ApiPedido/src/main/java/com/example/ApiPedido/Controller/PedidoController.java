@@ -20,7 +20,7 @@ import com.example.ApiPedido.Service.PedidoService;
 
 @Controller
 @RestController
-@RequestMapping("/api/v1/pedido") // Ruta base para esta API
+@RequestMapping("/api/pedido") // Ruta base para esta API
 public class PedidoController {
 
 
@@ -32,7 +32,7 @@ public class PedidoController {
     public ResponseEntity<List<Pedido>> getAll() {
         return ResponseEntity.ok(pedidoService.getAll());
     }
-
+    
     // Obtener un pedido por su ID (GET /api/pedido/{id})
     @GetMapping("/{id}")
     public ResponseEntity<?> getById(@PathVariable Integer id) {
